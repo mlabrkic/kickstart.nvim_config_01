@@ -12,12 +12,12 @@ Configuring Neovim using Lua programming language
 
 https://github.com/nanotee/nvim-lua-guide
 
-1. Learning Lua
+1. Learning Lua \
 https://github.com/nanotee/nvim-lua-guide#learning-lua \
 --> https://learnxinyminutes.com/docs/lua/
 
 
-2. Existing tutorials for writing Lua in Neovim
+2. Existing tutorials for writing Lua in Neovim \
 https://github.com/nanotee/nvim-lua-guide#existing-tutorials-for-writing-lua-in-neovim \
 --> https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
 
