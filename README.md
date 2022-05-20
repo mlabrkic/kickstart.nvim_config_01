@@ -3,8 +3,7 @@
 Neovim Lua configuration No 01 (based on kickstart.nvim)
 </h3>
 
-This repository contains my config files for Neovim.
-
+This repository contains my config files for Neovim. \
 Configuring Neovim using Lua programming language
 (switching from init.vim to init.lua)
 
@@ -15,14 +14,12 @@ https://github.com/nanotee/nvim-lua-guide
 
 1. Learning Lua
 https://github.com/nanotee/nvim-lua-guide#learning-lua \
---> \
-https://learnxinyminutes.com/docs/lua/
+--> https://learnxinyminutes.com/docs/lua/
 
 
 2. Existing tutorials for writing Lua in Neovim
 https://github.com/nanotee/nvim-lua-guide#existing-tutorials-for-writing-lua-in-neovim \
---> \
-https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
+--> https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
 
 ------------------------------------------------------------
 ### B:  kickstart.nvim
@@ -63,13 +60,10 @@ https://github.com/brainfucksec/neovim-lua#lsp-configuration
 
 git clone "https://github.com/nvim-lua/kickstart.nvim"
 
-------------------------------
-edit
-init.lua
+edit  init.lua
 
 ------------------------------
 #### No_ 01:  OPTIONS
-
 ```lua
   -- use 'mjlbach/onedark.nvim' -- Theme inspired by Atom
   use 'sainnhe/gruvbox-material'
@@ -89,11 +83,9 @@ https://github.com/nvim-telescope/telescope-fzf-native.nvim#installation
 To get fzf-native working, you need to build it with either cmake or make.
 As of now, we do not ship binaries.
 
-###### Make (Windows with MinGW)
-This requires gcc and make
-
+**Make (Windows with MinGW)**
+This requires gcc and make \
 C:\Users\<username>\AppData\Local\
-
 ```winCommandShell
 cd %USERPROFILE%\AppData\Local\
 
@@ -103,12 +95,11 @@ dir
 mkdir build
 make
 ```
-
 -->
 telescope-fzf-native.nvim\build\libfzf.dll
 
----------------
-Description
+
+**Description**
 
 make: \
 mkdir build \
