@@ -10,7 +10,7 @@ Configuring Neovim using Lua programming language
 <p align="center">
 <img src="img/Woman-with-a-red-hat.jpg" alt="Woman with a red hat">
 </p>
-[Woman with a red hat](https://bobbinlace.com.hr/) by Duska Travica
+Picture: [Woman with a red hat](https://bobbinlace.com.hr/) by Duska Travica
 
 ------------------------------------------------------------
 ### A:  Resources
