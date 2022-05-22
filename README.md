@@ -38,7 +38,7 @@ About: A small, documented, and featureful neovim starter config
 This repo is meant to be used as a starting point for a user's own configuration;
 remove the things you don't use and add what you miss.
 
-**Installation**  \
+**Installation**
 * Backup your previous configuration
 * Copy and paste the kickstart.nvim `init.lua` into `$HOME/.config/nvim/init.lua`
 * start neovim (`nvim`) and run `:PackerInstall`,
