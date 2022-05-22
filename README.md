@@ -3,22 +3,27 @@
 Neovim Lua configuration No 01 (based on kickstart.nvim)
 </h3>
 
-This repository contains my config files for Neovim. \
+This repository contains my config files for Neovim.  \
 Configuring Neovim using Lua programming language
 (switching from init.vim to init.lua)
+
+<p align="center">
+<img src="img/Woman-with-a-red-hat.jpg" alt="Woman with a red hat">
+</p>
+by Duska Travica, https://bobbinlace.com.hr/
 
 ------------------------------------------------------------
 ### A:  Resources
 
 https://github.com/nanotee/nvim-lua-guide
 
-1. Learning Lua \
-https://github.com/nanotee/nvim-lua-guide#learning-lua \
+1. Learning Lua  \
+https://github.com/nanotee/nvim-lua-guide#learning-lua  \
 --> https://learnxinyminutes.com/docs/lua/
 
 
-2. Existing tutorials for writing Lua in Neovim \
-https://github.com/nanotee/nvim-lua-guide#existing-tutorials-for-writing-lua-in-neovim \
+2. Existing tutorials for writing Lua in Neovim  \
+https://github.com/nanotee/nvim-lua-guide#existing-tutorials-for-writing-lua-in-neovim  \
 --> https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/
 
 ------------------------------------------------------------
@@ -26,14 +31,14 @@ https://github.com/nanotee/nvim-lua-guide#existing-tutorials-for-writing-lua-in-
 
  / Neovim Lua configuration (based on kickstart.nvim) /
 
-https://github.com/nvim-lua/kickstart.nvim \
-Michael Lingelbach - mjlbach \
+https://github.com/nvim-lua/kickstart.nvim  \
+Michael Lingelbach - mjlbach  \
 About: A small, documented, and featureful neovim starter config
 
 This repo is meant to be used as a starting point for a user's own configuration;
 remove the things you don't use and add what you miss.
 
-##### Installation
+**Installation**  \
 * Backup your previous configuration
 * Copy and paste the kickstart.nvim `init.lua` into `$HOME/.config/nvim/init.lua`
 * start neovim (`nvim`) and run `:PackerInstall`,
@@ -41,8 +46,8 @@ remove the things you don't use and add what you miss.
 * restart neovim
 
 Info:
-https://github.com/neovim/neovim/projects \
---> @mjlbach, @folke, @mfussenegger, @tjdevries, @bfredl
+https://github.com/neovim/neovim/projects  \
+--> @mjlbach, @folke, @mfussenegger, @tjdevries, @bfredl, ...
 
 ------------------------------------------------------------
 ### C:  Installation
@@ -52,7 +57,7 @@ https://github.com/neovim/neovim/projects \
 3. Install [npm](https://github.com/npm/cli)
 4. Make a backup of your current `nvim` folder if necessary:
 
-https://github.com/brainfucksec/neovim-lua#installation \
+https://github.com/brainfucksec/neovim-lua#installation  \
 https://github.com/brainfucksec/neovim-lua#lsp-configuration
 
 ------------------------------------------------------------
@@ -84,7 +89,7 @@ To get fzf-native working, you need to build it with either cmake or make.
 As of now, we do not ship binaries.
 
 **Make (Windows with MinGW)**
-This requires gcc and make \
+This requires gcc and make  \
 C:\Users\<username>\AppData\Local\
 ```winCommandShell
 cd %USERPROFILE%\AppData\Local\
@@ -101,18 +106,18 @@ telescope-fzf-native.nvim\build\libfzf.dll
 
 **Description**
 
-make: \
-mkdir build \
+make:  \
+mkdir build  \
 gcc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll
 
 ------------------------------
 #### No_ 03:  nvim-treesitter
 https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support#mingw-toolchain
 
-###### Windows with MinGW
+**Windows with MinGW**
 
-:TSInstallInfo
-:TSInstall lua
+:TSInstallInfo  \
+:TSInstall lua  \
 -- ensure_installed = {"vim", "lua", "python", "java"},
 
 ```winCommandShell
@@ -122,28 +127,29 @@ dir
 ```
 
 -->
-nvim-treesitter\parser\lua.so \
+nvim-treesitter\parser\lua.so  \
 (Yes! .so)
 
 ------------------------------
 #### No_ 04:  sumneko/lua-language-server
 https://github.com/sumneko/lua-language-server/releases
 
-2022-05M-16 \
+2022-05M-16  \
 lua-language-server-3.2.3-win32-x64.zip
 
-Unzip (rename folder to "sumneko_lua"), copy to: \
-'C:/UTILS/Neovim_LSP/sumneko_lua/bin/lua-language-server' \
+Unzip (rename folder to "sumneko_lua"), copy to:  \
+'C:/UTILS/Neovim_LSP/sumneko_lua/bin/lua-language-server'  \
 (sumneko_lua\main.lua)
-
+```lua
   cmd = {'C:/UTILS/PORT/Neovim_LSP/sumneko_lua/bin/lua-language-server'},
+```
 
 :LspInfo
 
 ------------------------------------------------------------
 Windows Command shell info:
 
-https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands \
+https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands  \
 https://ss64.com/nt/
 
 ------------------------------------------------------------
