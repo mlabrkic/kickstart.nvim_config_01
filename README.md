@@ -65,7 +65,7 @@ https://github.com/brainfucksec/neovim-lua#lsp-configuration
 ------------------------------------------------------------
 ## D:  Configuration
 
-edit  init.lua
+edit init.lua from kickstart.nvim
 
 ------------------------------
 #### No_ 01:  OPTIONS
