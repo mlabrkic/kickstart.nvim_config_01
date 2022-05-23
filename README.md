@@ -137,7 +137,7 @@ Unzip (rename folder to "sumneko_lua"), copy to:  \
 'C:/UTILS/Neovim_LSP/sumneko_lua/bin/lua-language-server'  \
 (sumneko_lua\main.lua)
 ```lua
-  cmd = {'C:/UTILS/PORT/Neovim_LSP/sumneko_lua/bin/lua-language-server'},
+  cmd = {'C:/UTILS/Neovim_LSP/sumneko_lua/bin/lua-language-server'},
 ```
 Open some lua file, and  \
 :LspInfo
