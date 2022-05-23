@@ -91,8 +91,7 @@ As of now, we do not ship binaries.
 This requires gcc and make  \
 / C:\Users\<username>\AppData\Local\ /
 ```winCommandShell
-cd %USERPROFILE%\AppData\Local\
-
+cd %USERPROFILE%\AppData\Local\  \
 cd nvim-data\site\pack\packer\start\telescope-fzf-native.nvim\
 dir
 
@@ -103,8 +102,7 @@ make
 telescope-fzf-native.nvim\build\libfzf.dll
 
 
-**Description**
-make:  \
+**Description**, make:  \
 mkdir build  \
 gcc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll
 
@@ -112,8 +110,9 @@ gcc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll
 #### No_ 03:  nvim-treesitter
 https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support#mingw-toolchain
 
-**Windows with MinGW**
+**Windows with MinGW**  \
 :TSInstallInfo  \
+:TSInstall vim  \
 :TSInstall lua  \
 -- ensure_installed = {"vim", "lua", "python", "java"},
 ```winCommandShell
