@@ -29,8 +29,6 @@ https://github.com/nanotee/nvim-lua-guide#existing-tutorials-for-writing-lua-in-
 ------------------------------------------------------------
 ### B:  kickstart.nvim
 
- / Neovim Lua configuration (based on kickstart.nvim) /
-
 https://github.com/nvim-lua/kickstart.nvim  \
 Michael Lingelbach - mjlbach  \
 About: A small, documented, and featureful neovim starter config
