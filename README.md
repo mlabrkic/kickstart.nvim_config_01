@@ -63,7 +63,7 @@ https://github.com/brainfucksec/neovim-lua#lsp-configuration
 ------------------------------------------------------------
 ## D:  Configuration
 
-git clone "https://github.com/nvim-lua/kickstart.nvim"
+git clone https://github.com/mlabrkic/kickstart.nvim_config_01.git
 
 edit  init.lua
 
@@ -83,14 +83,13 @@ vim.cmd [[colorscheme gruvbox-material]]
 
 ------------------------------
 #### No_ 02:  telescope-fzf-native
-https://github.com/nvim-telescope/telescope-fzf-native.nvim#installation
-
+https://github.com/nvim-telescope/telescope-fzf-native.nvim#installation  \
 To get fzf-native working, you need to build it with either cmake or make.
 As of now, we do not ship binaries.
 
 **Make (Windows with MinGW)**
 This requires gcc and make  \
-C:\Users\<username>\AppData\Local\
+/ C:\Users\<username>\AppData\Local\ /
 ```winCommandShell
 cd %USERPROFILE%\AppData\Local\
 
@@ -105,7 +104,6 @@ telescope-fzf-native.nvim\build\libfzf.dll
 
 
 **Description**
-
 make:  \
 mkdir build  \
 gcc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll
@@ -115,25 +113,21 @@ gcc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll
 https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support#mingw-toolchain
 
 **Windows with MinGW**
-
 :TSInstallInfo  \
 :TSInstall lua  \
 -- ensure_installed = {"vim", "lua", "python", "java"},
-
 ```winCommandShell
 cd %USERPROFILE%\AppData\Local\
 cd nvim-data\site\pack\packer\start\nvim-treesitter\
 dir
 ```
-
 -->
 nvim-treesitter\parser\lua.so  \
 (Yes! .so)
 
 ------------------------------
 #### No_ 04:  sumneko/lua-language-server
-https://github.com/sumneko/lua-language-server/releases
-
+https://github.com/sumneko/lua-language-server/releases  \
 2022-05M-16  \
 lua-language-server-3.2.3-win32-x64.zip
 
@@ -143,7 +137,7 @@ Unzip (rename folder to "sumneko_lua"), copy to:  \
 ```lua
   cmd = {'C:/UTILS/PORT/Neovim_LSP/sumneko_lua/bin/lua-language-server'},
 ```
-
+Open some lua file, and  \
 :LspInfo
 
 ------------------------------------------------------------
