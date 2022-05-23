@@ -89,7 +89,7 @@ As of now, we do not ship binaries.
 
 **Make (Windows with MinGW)**
 This requires gcc and make  \
-/ C:\Users\<username>\AppData\Local\ /
+/ C:\Users\username\AppData\Local\ /
 ```winCommandShell
 cd %USERPROFILE%\AppData\Local\  \
 cd nvim-data\site\pack\packer\start\telescope-fzf-native.nvim\
