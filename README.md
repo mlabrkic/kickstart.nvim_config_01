@@ -57,13 +57,13 @@ https://github.com/neovim/neovim/projects  \
 3. Install [npm](https://github.com/npm/cli)
 4. Make a backup of your current `nvim` folder if necessary:
 
+git clone https://github.com/mlabrkic/kickstart.nvim_config_01.git
+
 https://github.com/brainfucksec/neovim-lua#installation  \
 https://github.com/brainfucksec/neovim-lua#lsp-configuration
 
 ------------------------------------------------------------
 ## D:  Configuration
-
-git clone https://github.com/mlabrkic/kickstart.nvim_config_01.git
 
 edit  init.lua
 
