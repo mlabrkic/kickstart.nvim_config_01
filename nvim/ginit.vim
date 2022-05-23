@@ -37,21 +37,35 @@
 " :GuiFont! Hack:h10:l
 
 " ---------------------------------------------
-"Fonts :
-" monospaced, Adobe
-" C:\UTILS\INSTALL\fonts_source-code-pro\"
-" source-code-pro-2.030R-ro-1.050R-it.zip
+" Download free fonts
+
+" https://github.com/ryanoasis/nerd-fonts/releases/
+" Assets 54
+" -->
+" I installed SourceCodePro:
+" SourceCodePro.zip
+" Info: Monospaced font family for user interface and coding environments
+
 " -->
 " SourceCodePro-Regular.ttf
+
+" ---------------------------------------------
+" How to install fonts in Windows 10?
+" https://support.microsoft.com/en-us/office/add-a-font-b7c5f17c-4426-4b53-967f-455339c564c1
+" Add a font
+
+" Download the font files. ...
+" If the font files are zipped, unzip them by right-clicking the . ...
+" Right-click the fonts you want, and click Install.
+
 " -->
+"  In Windows 10, go to Control Panel > Fonts
 "Control Panel\All Control Panel Items\Fonts\Source Code Pro
 
 " ---------------------------------------------
 ":help map-which-keys
 ":help {key}^D"
 "^D is CTRL-D
-" <S-Right>
-" <S-Left>
 
 " ---------------------------------------------
 
