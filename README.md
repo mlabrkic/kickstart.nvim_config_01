@@ -44,7 +44,7 @@ https://github.com/neovim/neovim/projects  \
 ### C:  Installation
 
 1. Install [Neovim v0.7.x](https://github.com/neovim/neovim/releases/latest).
-2. Install [Nerd Fonts](https://www.nerdfonts.com/font-downloads) (I installed SourceCodePro.--> ginit.vim ).
+2. Install [Nerd Fonts](https://www.nerdfonts.com/font-downloads)  (I installed SourceCodePro.--> ginit.vim ).
 3. Install [npm](https://github.com/npm/cli)
 4. Make a backup of your current `nvim` folder if necessary
 
