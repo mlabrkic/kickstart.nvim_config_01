@@ -38,13 +38,6 @@ About: A small, documented, and featureful neovim starter config
 This repo is meant to be used as a starting point for a user's own configuration;
 remove the things you don't use and add what you miss.
 
-**Installation**
-* Backup your previous configuration
-* Copy and paste the kickstart.nvim `init.lua` into `$HOME/.config/nvim/init.lua`
-* start neovim (`nvim`) and run `:PackerInstall`,
-  ignore any error message about missing plugins, `:PackerInstall` will fix that shortly.
-* restart neovim
-
 Info:
 https://github.com/neovim/neovim/projects  \
 --> @mjlbach, @folke, @mfussenegger, @tjdevries, @bfredl, ...
@@ -55,18 +48,28 @@ https://github.com/neovim/neovim/projects  \
 1. Install [Neovim v0.7.x](https://github.com/neovim/neovim/releases/latest).
 2. Install [Nerd Fonts](https://www.nerdfonts.com/font-downloads) (I installed SourceCodePro.--> ginit.vim ).
 3. Install [npm](https://github.com/npm/cli)
-4. Make a backup of your current `nvim` folder if necessary:
+4. Make a backup of your current `nvim` folder if necessary
 
 git clone https://github.com/mlabrkic/kickstart.nvim_config_01.git
+
+**Installation**
+* Backup your previous configuration `%USERPROFILE%\AppData\Local\nvim\`
+* Copy and paste the "kickstart.nvim_config_01" "nvim" folder into `%USERPROFILE%\AppData\Local\`
+* start neovim (`C:\UTILS\Neovim\bin\nvim-qt.exe`) and run `:PackerInstall` (--> Plugin manager packer.nvim is installed.),
+* restart neovim and run `:PackerInstall`,
+  ignore any error message about missing plugins, `:PackerInstall` will fix that shortly.
+* restart neovim
+
+Failed to install 'nvim-telescope/telescope-fzf-native.nvim'
+-->
+No_ 02:  telescope-fzf-native
 
 https://github.com/brainfucksec/neovim-lua#installation  \
 https://github.com/brainfucksec/neovim-lua#lsp-configuration
 
 ------------------------------------------------------------
-## D:  Configuration
+## D:  How I got "kickstart.nvim_config_01"?
 
-How I got "kickstart.nvim_config_01"?
--->
 I edited init.lua from kickstart.nvim (No_ 01 -  No_ 04)
 
 ------------------------------
