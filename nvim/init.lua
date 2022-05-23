@@ -1,19 +1,21 @@
+------------------------------------------------------------
+-- https://github.com/mlabrkic/kickstart.nvim_config_01
+-- Neovim Lua configuration No 01 (based on kickstart.nvim)
+-- 2022-05M-16 15:06:18
+
+-- D: How I got "kickstart.nvim_config_01"?
+-- I edited init.lua from "kickstart.nvim" (No_ 01 - No_ 04)
+
+-- No_ 01:  OPTIONS
+-- No_ 02:  telescope-fzf-native
+-- No_ 03:  nvim-treesitter
+-- No_ 04:  sumneko/lua-language-server
 
 ------------------------------------------------------------
 -- https://github.com/nvim-lua/kickstart.nvim
 -- Copyright (c) 2021 Michael Lingelbach - mjlbach
 -- About
 -- A small, documented, and featureful neovim starter config
-
-------------------------------------------------------------
--- https://github.com/mlabrkic
--- 2022-05M-16 15:06:18
--- edit init.lua
-
--- No_ 01:  OPTIONS
--- No_ 02:  telescope-fzf-native
--- No_ 03:  nvim-treesitter
--- No_ 04:  sumneko/lua-language-server
 
 ------------------------------------------------------------
 -- Install packer
