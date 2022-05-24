@@ -135,7 +135,7 @@ https://github.com/sumneko/lua-language-server/releases  \
 lua-language-server-3.2.3-win32-x64.zip
 
 Unzip (rename folder to "sumneko_lua"), copy to:  \
-'C:/UTILS/Neovim_LSP/sumneko_lua/bin/lua-language-server'  \
+'C:/UTILS/Neovim_LSP/'  \
 (sumneko_lua\main.lua)
 ```lua
   cmd = {'C:/UTILS/Neovim_LSP/sumneko_lua/bin/lua-language-server'},
