@@ -53,7 +53,7 @@ git clone https://github.com/mlabrkic/kickstart.nvim_config_01.git
 **Installation**
 * Backup your previous configuration `%USERPROFILE%\AppData\Local\nvim\`
 * Copy and paste "nvim" folder from "kickstart.nvim_config_01" into `%USERPROFILE%\AppData\Local\`
-* start neovim (`C:\UTILS\Neovim\bin\nvim-qt.exe`) and run `:PackerInstall` (--> Plugin manager packer.nvim is installed.),
+* start neovim (`C:\UTILS\Neovim\bin\nvim-qt.exe`) (--> Plugin manager packer.nvim is installed.),
 * restart neovim and run `:PackerInstall`,
   ignore any error message about missing plugins, `:PackerInstall` will fix that shortly.
 * restart neovim
