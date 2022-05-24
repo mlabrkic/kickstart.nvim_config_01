@@ -52,7 +52,7 @@ git clone https://github.com/mlabrkic/kickstart.nvim_config_01.git
 
 **Installation**
 * Backup your previous configuration `%USERPROFILE%\AppData\Local\nvim\`
-* Copy and paste the "kickstart.nvim_config_01" "nvim" folder into `%USERPROFILE%\AppData\Local\`
+* Copy and paste "nvim" folder from "kickstart.nvim_config_01" into `%USERPROFILE%\AppData\Local\`
 * start neovim (`C:\UTILS\Neovim\bin\nvim-qt.exe`) and run `:PackerInstall` (--> Plugin manager packer.nvim is installed.),
 * restart neovim and run `:PackerInstall`,
   ignore any error message about missing plugins, `:PackerInstall` will fix that shortly.
@@ -92,9 +92,9 @@ As of now, we do not ship binaries.
 
 **Make (Windows with MinGW)**
 This requires gcc and make  \
-/ C:\Users\username\AppData\Local\ /
+( C:\Users\username\AppData\Local\ )
 ```winCommandShell
-cd %USERPROFILE%\AppData\Local\  \
+cd %USERPROFILE%\AppData\Local\
 cd nvim-data\site\pack\packer\start\telescope-fzf-native.nvim\
 dir
 
@@ -105,7 +105,7 @@ make
 telescope-fzf-native.nvim\build\libfzf.dll
 
 
-**Description**, make:  \
+**Description (make)**  \
 mkdir build  \
 gcc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll
 
@@ -139,7 +139,7 @@ Unzip (rename folder to "sumneko_lua"), copy to:  \
 ```lua
   cmd = {'C:/UTILS/Neovim_LSP/sumneko_lua/bin/lua-language-server'},
 ```
-Open some lua file, and  \
+Open some lua file, and type  \
 :LspInfo
 
 ------------------------------------------------------------
