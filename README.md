@@ -117,6 +117,7 @@ https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support#mingw-to
 :TSInstallInfo  \
 :TSInstall vim  \
 :TSInstall lua  \
+:TSInstall python  \
 -- ensure_installed = {"vim", "lua", "python", "java"},
 ```winCommandShell
 cd %USERPROFILE%\AppData\Local\
