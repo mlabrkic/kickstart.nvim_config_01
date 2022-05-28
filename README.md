@@ -73,6 +73,7 @@ I edited init.lua from kickstart.nvim (No_ 01 -  No_ 05)
 ------------------------------
 #### No_ 01:  Plugins
 
+New:  \
 'sainnhe/gruvbox-material' -- colorscheme  \
 'hrsh7th/nvim-cmp'
 
