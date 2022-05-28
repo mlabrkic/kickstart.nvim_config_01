@@ -21,10 +21,11 @@
 -- D: How I got "kickstart.nvim_config_01"?
 -- I edited init.lua from "kickstart.nvim" (No_ 01 - No_ 04)
 
--- No_ 01:  OPTIONS
--- No_ 02:  telescope-fzf-native
--- No_ 03:  nvim-treesitter
--- No_ 04:  sumneko/lua-language-server
+-- No_ 01:  Plugins:  'sainnhe/gruvbox-material', 'hrsh7th/nvim-cmp'
+-- No_ 02:  OPTIONS
+-- No_ 03:  telescope-fzf-native --> Windows with MinGW
+-- No_ 04:  nvim-treesitter --> Windows with MinGW
+-- No_ 05:  sumneko/lua-language-server
 
 ------------------------------------------------------------
 -- Install packer
