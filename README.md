@@ -68,10 +68,16 @@ https://github.com/brainfucksec/neovim-lua#lsp-configuration
 ------------------------------------------------------------
 ## D:  How I got "kickstart.nvim_config_01"?
 
-I edited init.lua from kickstart.nvim (No_ 01 -  No_ 04)
+I edited init.lua from kickstart.nvim (No_ 01 -  No_ 05)
 
 ------------------------------
-#### No_ 01:  OPTIONS
+#### No_ 01:  Plugins
+
+'sainnhe/gruvbox-material' -- colorscheme  \
+'hrsh7th/nvim-cmp'
+
+------------------------------
+#### No_ 02:  OPTIONS
 ```lua
   -- use 'mjlbach/onedark.nvim' -- Theme inspired by Atom
   use 'sainnhe/gruvbox-material'
@@ -85,7 +91,7 @@ vim.cmd [[colorscheme gruvbox-material]]
 ```
 
 ------------------------------
-#### No_ 02:  telescope-fzf-native
+#### No_ 03:  telescope-fzf-native
 https://github.com/nvim-telescope/telescope-fzf-native.nvim#installation  \
 To get fzf-native working, you need to build it with either cmake or make.
 As of now, we do not ship binaries.
@@ -110,7 +116,7 @@ mkdir build  \
 gcc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll
 
 ------------------------------
-#### No_ 03:  nvim-treesitter
+#### No_ 04:  nvim-treesitter
 https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support#mingw-toolchain
 
 **Windows with MinGW**  \
@@ -129,7 +135,7 @@ nvim-treesitter\parser\lua.so  \
 (Yes! .so)
 
 ------------------------------
-#### No_ 04:  sumneko/lua-language-server
+#### No_ 05:  sumneko/lua-language-server
 https://github.com/sumneko/lua-language-server/releases  \
 2022-05M-16  \
 lua-language-server-3.2.3-win32-x64.zip
