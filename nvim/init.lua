@@ -1,7 +1,22 @@
+-- 2022-05M-28 09:32:08
+
+-- https://github.com/neovim/neovim/releases/latest
+-- NVIM v0.7.0, Latest stable release
+-- @github-actions github-actions released this Apr 15, 2022
+
 ------------------------------------------------------------
+-- https://github.com/nvim-lua/kickstart.nvim
+-- Copyright (c) 2021 Michael Lingelbach - mjlbach
+-- About
+-- A small, documented, and featureful neovim starter config
+
+-- lukas-reineke feat: update indent-blankline setup (#55)  fd7f05d on Apr 21
+
+------------------------------------------------------------
+-- mlabrkic:
 -- https://github.com/mlabrkic/kickstart.nvim_config_01
 -- Neovim Lua configuration No 01 (based on kickstart.nvim)
--- 2022-05M-16 15:06:18
+-- 2022-05M-28 09:32:08
 
 -- D: How I got "kickstart.nvim_config_01"?
 -- I edited init.lua from "kickstart.nvim" (No_ 01 - No_ 04)
@@ -12,12 +27,6 @@
 -- No_ 04:  sumneko/lua-language-server
 
 ------------------------------------------------------------
--- https://github.com/nvim-lua/kickstart.nvim
--- Copyright (c) 2021 Michael Lingelbach - mjlbach
--- About
--- A small, documented, and featureful neovim starter config
-
-------------------------------------------------------------
 -- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
@@ -25,16 +34,24 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
+-- vim.cmd [[
+--   augroup Packer
+--     autocmd!
+--     autocmd BufWritePost init.lua PackerCompile
+--   augroup end
+-- ]]
+
 local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
 vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile> | PackerCompile', group = packer_group, pattern = 'init.lua' })
 
--------------------- PLUGINS -------------------------------
+------------------------- PLUGINS --------------------------
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
+
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-  use 'ludovicchabant/vim-gutentags' -- Automatic tags management
+  -- use 'ludovicchabant/vim-gutentags' -- Automatic tags management
 
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
@@ -43,8 +60,11 @@ require('packer').startup(function(use)
   -- use 'mjlbach/onedark.nvim' -- Theme inspired by Atom
   use 'sainnhe/gruvbox-material'  -- mlabrkic
 
+  ----------------------------
+  -- https://github.com/nvim-lualine/lualine.nvim
   use 'nvim-lualine/lualine.nvim' -- Fancier statusline
 
+  ----------------------------
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'
   -- Add git related info in the signs columns and popups
@@ -55,20 +75,46 @@ require('packer').startup(function(use)
   -- Additional textobjects for treesitter
   use 'nvim-treesitter/nvim-treesitter-textobjects'
 
+  ----------------------------
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
-  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'L3MON4D3/LuaSnip' -- Snippets plugin
+
+  -- use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+  -- use 'hrsh7th/cmp-nvim-lsp'
+  -- use 'saadparwaiz1/cmp_luasnip'
+  -- use 'L3MON4D3/LuaSnip' -- Snippets plugin
+
+  -- autocomplete
+  use {
+    'hrsh7th/nvim-cmp', -- Autocompletion plugin
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'saadparwaiz1/cmp_luasnip',
+      'L3MON4D3/LuaSnip', -- Snippets plugin
+      "hrsh7th/cmp-nvim-lua", -- mlabrkic, Lua completion source
+      'hrsh7th/cmp-path',  -- mlabrkic
+      'hrsh7th/cmp-buffer',  -- mlabrkic
+    },
+  }
+
+  ----------------------------
+
 end)
 
--------------------- OPTIONS -------------------------------
+
+
+
+------------------------- OPTIONS --------------------------
 vim.cmd [[set clipboard+=unnamedplus]]  -- mlabrkic
-vim.wo.cursorline = true  -- mlabrkic
 vim.wo.relativenumber = true  -- mlabrkic
+vim.wo.cursorline = true  -- mlabrkic
+
+--Set colorscheme
+vim.o.termguicolors = true
+-- vim.cmd [[colorscheme onedark]]
+vim.cmd [[colorscheme gruvbox-material]]  -- mlabrkic
 
 --Set highlight on search
-vim.o.hlsearch = false
+-- vim.o.hlsearch = false  -- mlabrkic
 
 --Make line numbers default
 vim.wo.number = true
@@ -90,16 +136,25 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
---Set colorscheme
-vim.o.termguicolors = true
--- vim.cmd [[colorscheme onedark]]
-vim.cmd [[colorscheme gruvbox-material]]  -- mlabrkic
-
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+------------------------ MAPPINGS --------------------------
+-- https://github.com/nanotee/nvim-lua-guide#api-functions
 
--------------------- MAPPINGS ------------------------------
+--Remap space as leader key
+-- vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
+-- vim.g.mapleader = ' '
+-- vim.g.maplocalleader = ' '
+
+--Remap for dealing with word wrap
+-- vim.api.nvim_set_keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
+-- vim.api.nvim_set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
+
+------------------------------
+-- https://github.com/nanotee/nvim-lua-guide#vimkeymap
+--  vim.keymap.set() - only available in Neovim 0.7.0+
+
 --Remap space as leader key
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.g.mapleader = ' '
@@ -108,6 +163,21 @@ vim.g.maplocalleader = ' '
 --Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+---------------------- AUTOCOMMANDS ------------------------
+-- https://github.com/ojroques/dotfiles/blob/master/nvim/.config/nvim/init.lua
+
+-- https://github.com/nanotee/nvim-lua-guide#defining-autocommands
+-- Neovim 0.7.0 has API functions for autocommands.
+-- help api-autocmd
+
+-- Highlight on yank
+-- vim.cmd [[
+--   augroup YankHighlight
+--     autocmd!
+--     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+--   augroup end
+-- ]]
 
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -119,13 +189,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--------------------- AUTOCOMMANDS --------------------------
--- https://github.com/ojroques/dotfiles/blob/master/nvim/.config/nvim/init.lua
 
+--------------------- PLUGINS SETUP ------------------------
 
--------------------- PLUGIN SETUP --------------------------
-
---Set statusbar
+-- Set statusbar
 require('lualine').setup {
   options = {
     icons_enabled = false,
@@ -136,7 +203,14 @@ require('lualine').setup {
 }
 
 --Enable Comment.nvim
-require('Comment').setup()
+require('Comment').setup{}  -- mlabrkic: () --> {}
+
+-------------------- Indent blankline ----------------------
+--Map blankline
+-- vim.g.indent_blankline_char = '┊'
+-- vim.g.indent_blankline_filetype_exclude = { 'help', 'packer' }
+-- vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile' }
+-- vim.g.indent_blankline_show_trailing_blankline_indent = false
 
 -- Indent blankline
 require('indent_blankline').setup {
@@ -144,6 +218,7 @@ require('indent_blankline').setup {
   show_trailing_blankline_indent = false,
 }
 
+------------------------ Gitsigns --------------------------
 -- Gitsigns
 require('gitsigns').setup {
   signs = {
@@ -155,6 +230,7 @@ require('gitsigns').setup {
   },
 }
 
+----------------------- TELESCOPE --------------------------
 -- Telescope
 require('telescope').setup {
   defaults = {
@@ -185,7 +261,7 @@ vim.keymap.set('n', '<leader>so', function()
 end)
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles)
 
--------------------- TREE-SITTER ---------------------------
+---------------------- TREE-SITTER -------------------------
 -- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
 require('nvim-treesitter.configs').setup {
@@ -239,13 +315,14 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
+------------------------------------------------------------
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
--------------------- LSP -----------------------------------
+-------------------------- LSP -----------------------------
 -- LSP settings
 local lspconfig = require 'lspconfig'
 local on_attach = function(_, bufnr)
@@ -315,10 +392,11 @@ lspconfig.sumneko_lua.setup {
   },
 }
 
+----------------- 'hrsh7th/nvim-cmp' setup -----------------
 -- luasnip setup
 local luasnip = require 'luasnip'
 
--- nvim-cmp setup
+-- 'hrsh7th/nvim-cmp' setup
 local cmp = require 'cmp'
 cmp.setup {
   snippet = {
@@ -356,6 +434,8 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'path' },  -- mlabrkic
+    { name = 'buffer' },  -- mlabrkic
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
