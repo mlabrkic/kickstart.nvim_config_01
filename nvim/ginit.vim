@@ -63,29 +63,21 @@
 "Control Panel\All Control Panel Items\Fonts\Source Code Pro
 
 " ---------------------------------------------
-":help map-which-keys
-":help {key}^D"
 "^D is CTRL-D
 
 " ---------------------------------------------
-
-" Fix key mapping issues for GUI
-inoremap <silent> <S-Insert>  <C-R>+
-cnoremap <S-Insert> <C-R>+
-nnoremap <silent> <C-6> <C-^>
-
 if exists('g:GuiLoaded')
-    " Guifont! Source Code Pro:h14:cEASTEUROPE
-    Guifont! Source Code Pro:h16:cEASTEUROPE
+    " https://github.com/ryanoasis/nerd-fonts/releases/
+    " Sauce Code Pro Nerd Font
+    " SauceCodePro NF
+    Guifont! SauceCodePro NF:h16:cEASTEUROPE
 
-    nmap <C-0> :Guifont! Source Code Pro:h16:cEASTEUROPE<CR>
-    nmap <C-1> :Guifont! Source Code Pro:h18:cEASTEUROPE<CR>
-    nmap <C-2> :Guifont! Source Code Pro:h20:cEASTEUROPE<CR>
-
+    nmap <C-0> :Guifont! SauceCodePro NF:h16:cEASTEUROPE<CR>
+    nmap <C-1> :Guifont! SauceCodePro NF:h18:cEASTEUROPE<CR>
+    nmap <C-2> :Guifont! SauceCodePro NF:h20:cEASTEUROPE<CR>
 
     call GuiWindowMaximized(1)
     GuiTabline 0
     GuiPopupmenu 0
     GuiLinespace 2
 endif
-
