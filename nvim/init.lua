@@ -1,10 +1,10 @@
--- 2022-05M-28 09:32:08
-
+-- 1)
 -- https://github.com/neovim/neovim/releases/latest
 -- NVIM v0.7.0, Latest stable release
 -- @github-actions github-actions released this Apr 15, 2022
 
 ------------------------------------------------------------
+-- 2)
 -- https://github.com/nvim-lua/kickstart.nvim
 -- Copyright (c) 2021 Michael Lingelbach - mjlbach
 -- About
@@ -13,19 +13,21 @@
 -- lukas-reineke feat: update indent-blankline setup (#55)  fd7f05d on Apr 21
 
 ------------------------------------------------------------
+-- 3)
 -- mlabrkic:
+-- Neovim Lua configuration (based on kickstart.nvim)
+-- I edited init.lua from "kickstart.nvim" (No_ 01 - No_ 05)
+
+  ----------------------------
 -- https://github.com/mlabrkic/kickstart.nvim_config_01
--- Neovim Lua configuration No 01 (based on kickstart.nvim)
--- 2022-05M-28 09:32:08
-
--- D: How I got "kickstart.nvim_config_01"?
--- I edited init.lua from "kickstart.nvim" (No_ 01 - No_ 04)
-
+-- 2022-05M-28 14:49:33
 -- No_ 01:  Plugins:  'sainnhe/gruvbox-material', 'hrsh7th/nvim-cmp'
 -- No_ 02:  OPTIONS
 -- No_ 03:  telescope-fzf-native --> Windows with MinGW
 -- No_ 04:  nvim-treesitter --> Windows with MinGW
 -- No_ 05:  sumneko/lua-language-server
+
+  ----------------------------
 
 ------------------------------------------------------------
 -- Install packer
@@ -51,7 +53,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
 
-  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
+  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines ("gcc" to comment one line)
   -- use 'ludovicchabant/vim-gutentags' -- Automatic tags management
 
   -- UI to select things (files, grep results, open buffers...)
