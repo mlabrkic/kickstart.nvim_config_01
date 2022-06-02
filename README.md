@@ -63,7 +63,7 @@ Failed to install 'nvim-telescope/telescope-fzf-native.nvim'
 No_ 02:  telescope-fzf-native
 
 https://github.com/brainfucksec/neovim-lua#installation  \
-https://github.com/brainfucksec/neovim-lua#lsp-configuration
+https://jdhao.github.io/nvim-config/docs/
 
 ------------------------------------------------------------
 ## D:  How I got "kickstart.nvim_config_01"?
@@ -73,9 +73,38 @@ I edited init.lua from kickstart.nvim (No_ 01 -  No_ 05)
 ------------------------------
 #### No_ 01:  Plugins
 
-New:  \
-'sainnhe/gruvbox-material' -- colorscheme  \
-'hrsh7th/nvim-cmp'
+'sainnhe/gruvbox-material' -- colorscheme
+
+```lua
+  -- autocomplete
+  use {
+    'hrsh7th/nvim-cmp', -- Autocompletion plugin
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'saadparwaiz1/cmp_luasnip',
+      'L3MON4D3/LuaSnip', -- Snippets plugin
+      "hrsh7th/cmp-nvim-lua", -- mlabrkic, Lua completion source
+      'hrsh7th/cmp-path',  -- mlabrkic
+      'hrsh7th/cmp-buffer',  -- mlabrkic
+    },
+  }
+```
+
+```lua
+----------------- 'hrsh7th/nvim-cmp' setup -----------------
+-- 'hrsh7th/nvim-cmp' setup
+local cmp = require 'cmp'
+cmp.setup {
+...
+    }),
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+    { name = 'path' },  -- mlabrkic
+    { name = 'buffer' },  -- mlabrkic
+  },
+}
+```
 
 ------------------------------
 #### No_ 02:  OPTIONS
@@ -92,7 +121,7 @@ vim.cmd [[colorscheme gruvbox-material]]
 ```
 
 ------------------------------
-#### No_ 03:  telescope-fzf-native
+#### No_ 03:  telescope-fzf-native --> Windows with MinGW
 https://github.com/nvim-telescope/telescope-fzf-native.nvim#installation  \
 To get fzf-native working, you need to build it with either cmake or make.
 As of now, we do not ship binaries.
@@ -117,7 +146,7 @@ mkdir build  \
 gcc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll
 
 ------------------------------
-#### No_ 04:  nvim-treesitter
+#### No_ 04:  nvim-treesitter --> Windows with MinGW
 https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support#mingw-toolchain
 
 **Windows with MinGW**  \
