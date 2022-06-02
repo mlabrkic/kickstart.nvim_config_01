@@ -73,7 +73,10 @@ I edited init.lua from kickstart.nvim (No_ 01 -  No_ 05)
 ------------------------------
 #### No_ 01:  Plugins
 
+```lua
+  -- use 'mjlbach/onedark.nvim' -- Theme inspired by Atom
 'sainnhe/gruvbox-material' -- colorscheme
+```
 
 ```lua
   -- autocomplete
@@ -109,9 +112,6 @@ cmp.setup {
 ------------------------------
 #### No_ 02:  OPTIONS
 ```lua
-  -- use 'mjlbach/onedark.nvim' -- Theme inspired by Atom
-  use 'sainnhe/gruvbox-material'
-
 vim.cmd [[set clipboard+=unnamedplus]]
 vim.wo.cursorline = true
 vim.wo.relativenumber = true
