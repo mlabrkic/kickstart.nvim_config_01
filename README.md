@@ -75,7 +75,7 @@ I edited init.lua from kickstart.nvim (No_ 01 -  No_ 05)
 
 ```lua
   -- use 'mjlbach/onedark.nvim' -- Theme inspired by Atom
-'sainnhe/gruvbox-material' -- colorscheme
+  use 'sainnhe/gruvbox-material'  -- mlabrkic
 ```
 
 ```lua
