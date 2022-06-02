@@ -437,6 +437,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'nvim_lua' },  -- mlabrkic
     { name = 'path' },  -- mlabrkic
     { name = 'buffer' },  -- mlabrkic
   },
