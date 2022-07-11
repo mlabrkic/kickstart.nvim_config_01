@@ -125,6 +125,7 @@ cmp.setup {
 }
 
 -- mlabrkic:
+
 -- https://github.com/hrsh7th/nvim-cmp#recommended-configuration
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
