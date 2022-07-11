@@ -79,35 +79,70 @@ I edited init.lua from kickstart.nvim (No_ 01 -  No_ 05)
 ```
 
 ```lua
-  -- autocomplete
+  -- https://github.com/hrsh7th/nvim-cmp#recommended-configuration
+
+  use 'neovim/nvim-lspconfig'                              -- Collection of configurations for built-in LSP client
+  -- use 'williamboman/nvim-lsp-installer'                    -- Automatically install language servers to stdpath
+
+  -- Autocompletion
+  -- https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
   use {
-    'hrsh7th/nvim-cmp', -- Autocompletion plugin
+    'hrsh7th/nvim-cmp',                                    -- A completion engine plugin for neovim written in Lua.
     requires = {
-      'hrsh7th/cmp-nvim-lsp',
-      'saadparwaiz1/cmp_luasnip',
-      'L3MON4D3/LuaSnip', -- Snippets plugin
-      "hrsh7th/cmp-nvim-lua", -- mlabrkic, Lua completion source
-      'hrsh7th/cmp-path',  -- mlabrkic
-      'hrsh7th/cmp-buffer',  -- mlabrkic
-    },
+      'hrsh7th/cmp-nvim-lsp',                              -- nvim-cmp source for neovim builtin LSP client
+      'hrsh7th/cmp-buffer',                                -- nvim-cmp source for buffer words
+      'hrsh7th/cmp-path',                                  -- nvim-cmp source for filesystem paths
+      'hrsh7th/cmp-cmdline'                                -- nvim-cmp source for vim's cmdline (command mode and for / search)
+    }
+  }
+
+  -- For luasnip users.
+  -- https://github.com/L3MON4D3/LuaSnip#add-snippets
+  use {
+    'L3MON4D3/LuaSnip',                -- Snippet Engine (Expand LSP-Snippets with nvim-cmp (requires cmp_luasnip))
+    requires = {
+      'saadparwaiz1/cmp_luasnip'       -- luasnip completion source for nvim-cmp
+    }
   }
 ```
 
 ```lua
 ----------------- 'hrsh7th/nvim-cmp' setup -----------------
+-- https://dev.to/vonheikemen/neovim-lsp-setup-nvim-lspconfig-nvim-cmp-4k8e
+
 -- 'hrsh7th/nvim-cmp' setup
 local cmp = require 'cmp'
+
 cmp.setup {
 ...
     }),
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = 'nvim_lua' },  -- mlabrkic
-    { name = 'path' },  -- mlabrkic
     { name = 'buffer' },  -- mlabrkic
+    { name = 'path' },  -- mlabrkic
   },
 }
+
+-- mlabrkic:
+-- https://github.com/hrsh7th/nvim-cmp#recommended-configuration
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
 ```
 
 ------------------------------
