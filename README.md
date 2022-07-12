@@ -43,25 +43,45 @@ https://github.com/neovim/neovim/projects  \
 ------------------------------------------------------------
 ### C:  Installation
 
-1. Install [Neovim v0.7.x](https://github.com/neovim/neovim/releases/latest).
-2. Install [Nerd Fonts](https://www.nerdfonts.com/font-downloads)  (I installed SourceCodePro.--> ginit.vim ).
-3. Install [npm](https://github.com/npm/cli)
-4. Make a backup of your current `nvim` folder if necessary
+#### C1:  Neovim Installation
+1. Make a backup of your current `nvim` folder if necessary
+2. Install [Neovim v0.7.x](https://github.com/neovim/neovim/releases/latest).
+3. Install [Nerd Fonts](https://www.nerdfonts.com/font-downloads)  (I installed SourceCodePro.--> ginit.vim ).
+4. Install [npm](https://github.com/npm/cli)
+
+
+#### C2:  kickstart.nvim Installation
 
 git clone https://github.com/mlabrkic/kickstart.nvim_config_01.git
 
 **Installation**
-* Backup your previous configuration `%USERPROFILE%\AppData\Local\nvim\`
-* Copy and paste "nvim" folder from "kickstart.nvim_config_01" into `%USERPROFILE%\AppData\Local\`
-* start neovim (`C:\UTILS\Neovim\bin\nvim-qt.exe`) (--> Plugin manager packer.nvim is installed.),
-* restart neovim and run `:PackerInstall`,
-  ignore any error message about missing plugins, `:PackerInstall` will fix that shortly.
-* restart neovim
+1. Backup your previous configuration
 
-Failed to install 'nvim-telescope/telescope-fzf-native.nvim'
--->
-No_ 02:  telescope-fzf-native
+2. Copy and paste the kickstart.nvim init.lua into
+:echo stdpath("config") . '\init.lua'
+```winCommandShell
+Windows Command Shell:                           \
 
+echo %USERPROFILE%                               \
+echo %USERPROFILE%\AppData\Local\nvim\init.lua   \
+
+echo %LOCALAPPDATA%                              \
+echo %LOCALAPPDATA%\nvim\init.lua                \
+```
+
+3. Start neovim (nvim). When you get this press Enter:
+  print '=================================='
+  print '    Plugins are being installed'
+  print '    Wait until Packer completes,'
+  print '       then restart nvim'
+  print '=================================='
+
+Wait until the plugins are installed.
+
+4. Restart neovim
+Now wait for the Treesitter parsers to compile.
+
+Resources:   \
 https://github.com/brainfucksec/neovim-lua#installation  \
 https://jdhao.github.io/nvim-config/docs/
 
@@ -149,7 +169,7 @@ cmp.setup.cmdline(':', {
 ------------------------------
 #### No_ 02:  OPTIONS
 ```lua
-vim.cmd [[set clipboard+=unnamedplus]]
+-- vim.cmd [[set clipboard+=unnamedplus]]
 vim.wo.cursorline = true
 vim.wo.relativenumber = true
 
