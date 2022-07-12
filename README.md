@@ -57,32 +57,32 @@ git clone https://github.com/mlabrkic/kickstart.nvim_config_01.git
 **Installation**
 1. Backup your previous configuration
 
-2. Copy and paste the kickstart.nvim init.lua into
+2. Copy and paste the kickstart.nvim init.lua into         \
 :echo stdpath("config") . '\init.lua'
 ```winCommandShell
-Windows Command Shell:                           \
+Windows Command Shell:
 
-echo %USERPROFILE%                               \
-echo %USERPROFILE%\AppData\Local\nvim\init.lua   \
+echo %USERPROFILE%
+echo %USERPROFILE%\AppData\Local\nvim\init.lua
 
-echo %LOCALAPPDATA%                              \
-echo %LOCALAPPDATA%\nvim\init.lua                \
+echo %LOCALAPPDATA%
+echo %LOCALAPPDATA%\nvim\init.lua
 ```
 
-3. Start neovim (nvim). When you get this press Enter:
-  print '=================================='
-  print '    Plugins are being installed'
-  print '    Wait until Packer completes,'
-  print '       then restart nvim'
-  print '=================================='
+3. Start neovim (nvim). When you get this press Enter:     \
+  print '=================================='               \
+  print '    Plugins are being installed'                  \
+  print '    Wait until Packer completes,'                 \
+  print '       then restart nvim'                         \
+  print '=================================='               \
 
 Wait until the plugins are installed.
 
-4. Restart neovim
+4. Restart neovim                                          \
 Now wait for the Treesitter parsers to compile.
 
 Resources:   \
-https://github.com/brainfucksec/neovim-lua#installation  \
+https://github.com/brainfucksec/neovim-lua#installation    \
 https://jdhao.github.io/nvim-config/docs/
 
 ------------------------------------------------------------
