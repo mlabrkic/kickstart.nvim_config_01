@@ -182,10 +182,8 @@ Setting options
 :help vim.o
 ]]
 
-vim.cmd [[set clipboard+=unnamedplus]]  -- mlabrkic
 vim.wo.relativenumber = true  -- mlabrkic
 vim.wo.cursorline = true  -- mlabrkic
-
 
 -- Set highlight on search
 -- vim.o.hlsearch = false  -- mlabrkic
@@ -251,6 +249,37 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+------------------------------
+-- mlabrkic:
+
+-- clipboard:
+-- vim.cmd [[set clipboard+=unnamedplus]]  -- mlabrkic
+
+--[[
+https://dev.to/vonheikemen/build-your-first-neovim-configuration-in-lua-177b
+
+The default behavior in Neovim (and Vim) doesn't take into account the system clipboard.
+It has its own mechanism to store text.
+When we copy something using the y keybinding that text goes to an internal register.
+I prefer to keep it that way, and what I do is create dedicated bindings to interact with the clipboard.
+]]
+
+-- Copy to clipboard.
+-- vim.keymap.set({'n', 'x'}, 'cp', '"+y')
+vim.keymap.set({'n', 'x'}, '<C-c>', '"+y')
+
+-- Paste from clipboard.
+-- vim.keymap.set({'n', 'x'}, 'cv', '"+p')
+vim.keymap.set({'n', 'x'}, '<C-p>', '"+p')
+
+--[[
+Delete without changing the registers
+When we delete text in normal mode or visual mode using c, d or x that text goes to a register.
+This affects the text we paste with the keybinding p.
+]]
+vim.keymap.set({'n', 'x'}, 'x', '"_x')
+
 
 ---------------------- AUTOCOMMANDS ------------------------
 --[[
