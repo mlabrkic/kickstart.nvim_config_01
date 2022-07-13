@@ -50,15 +50,14 @@ https://github.com/neovim/neovim/projects  \
 4. Install [npm](https://github.com/npm/cli)
 
 
-#### C2:  kickstart.nvim Installation
+#### C2:  Neovim Configuration
 
 git clone https://github.com/mlabrkic/kickstart.nvim_config_01.git
 
-**Installation**
 1. Backup your previous configuration
 
-2. Copy and paste the kickstart.nvim init.lua into         \
-:echo stdpath("config") . '\init.lua'
+2. Copy and paste files into         \
+:echo stdpath("config")
 ```winCommandShell
 Windows Command Shell:
 
@@ -74,7 +73,7 @@ echo %LOCALAPPDATA%\nvim\init.lua
   print '    Plugins are being installed'                  \
   print '    Wait until Packer completes,'                 \
   print '       then restart nvim'                         \
-  print '=================================='               \
+  print '=================================='
 
 Wait until the plugins are installed.
 
@@ -111,13 +110,12 @@ I edited init.lua from kickstart.nvim (No_ 01 -  No_ 05)
     requires = {
       'hrsh7th/cmp-nvim-lsp',                              -- nvim-cmp source for neovim builtin LSP client
       'hrsh7th/cmp-buffer',                                -- nvim-cmp source for buffer words
-      'hrsh7th/cmp-path',                                  -- nvim-cmp source for filesystem paths
-      'hrsh7th/cmp-cmdline'                                -- nvim-cmp source for vim's cmdline (command mode and for / search)
+      -- 'hrsh7th/cmp-path',                                  -- nvim-cmp source for filesystem paths
+      -- 'hrsh7th/cmp-cmdline'                                -- nvim-cmp source for vim's cmdline (command mode and for / search)
     }
   }
 
   -- For luasnip users.
-  -- https://github.com/L3MON4D3/LuaSnip#add-snippets
   use {
     'L3MON4D3/LuaSnip',                -- Snippet Engine (Expand LSP-Snippets with nvim-cmp (requires cmp_luasnip))
     requires = {
@@ -134,18 +132,21 @@ I edited init.lua from kickstart.nvim (No_ 01 -  No_ 05)
 local cmp = require 'cmp'
 
 cmp.setup {
-...
-    }),
+  ...
+
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    -- { name = 'luasnip', option = { keyword_length = 2, } },  -- mlabrkic
     { name = 'buffer' },  -- mlabrkic
-    { name = 'path' },  -- mlabrkic
+    -- { name = "buffer", option = { keyword_length = 3, keyword_pattern = [[\k\+]], }},  -- mlabrkic
+    -- { name = 'path' },  -- mlabrkic
   },
 }
 
--- mlabrkic:
 
+--[[
+-- mlabrkic:
 -- https://github.com/hrsh7th/nvim-cmp#recommended-configuration
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
@@ -164,6 +165,7 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
+]]
 ```
 
 ------------------------------
