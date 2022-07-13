@@ -64,8 +64,9 @@ require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter-textobjects'                            --  Additional textobjects for treesitter
 
 ------------------------------
-  -- mlabrkic:
+  -- Autocompletion
 
+  -- mlabrkic:
   -- use 'neovim/nvim-lspconfig'                                                  -- Collection of configurations for built-in LSP client
   -- use 'williamboman/nvim-lsp-installer'                                        -- Automatically install language servers to stdpath
 
@@ -83,7 +84,6 @@ https://github.com/hrsh7th/cmp-cmdline
 
 https://github.com/L3MON4D3/LuaSnip
 https://github.com/saadparwaiz1/cmp_luasnip
-
 ]]
 
   -- https://github.com/hrsh7th/nvim-cmp#recommended-configuration
@@ -97,13 +97,12 @@ https://github.com/saadparwaiz1/cmp_luasnip
     requires = {
       'hrsh7th/cmp-nvim-lsp',                              -- nvim-cmp source for neovim builtin LSP client
       'hrsh7th/cmp-buffer',                                -- nvim-cmp source for buffer words
-      'hrsh7th/cmp-path',                                  -- nvim-cmp source for filesystem paths
-      'hrsh7th/cmp-cmdline'                                -- nvim-cmp source for vim's cmdline (command mode and for / search)
+      -- 'hrsh7th/cmp-path',                                  -- nvim-cmp source for filesystem paths
+      -- 'hrsh7th/cmp-cmdline'                                -- nvim-cmp source for vim's cmdline (command mode and for / search)
     }
   }
 
   -- For luasnip users.
-  -- https://github.com/L3MON4D3/LuaSnip#add-snippets
   use {
     'L3MON4D3/LuaSnip',                -- Snippet Engine (Expand LSP-Snippets with nvim-cmp (requires cmp_luasnip))
     requires = {
@@ -130,13 +129,14 @@ https://github.com/saadparwaiz1/cmp_luasnip
   use { 'nvim-telescope/telescope-fzf-native.nvim' }
 
 ------------------------------------------------------------
+  -- mlabrkic:
 
 ------------------------------
+  -- mlabrkic:
   --[[
   Automatically set up your configuration after cloning packer.nvim
   Put this at the end after all plugins
 
-  -- mlabrkic:
   https://github.com/wbthomason/packer.nvim#quickstart
   PackerSync perform:
     PackerUpdate (Clean, then update and install plugins) and then
@@ -169,18 +169,35 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   group = packer_group,
   pattern = vim.fn.expand '$MYVIMRC',
 })
--- :h <afile>
--- :lua print(vim.fn.expand('$MYVIMRC'))
 
-------------------------------------------------------------
--- :h statusline
-
+--[[
+:h <afile>
+:lua print(vim.fn.expand('$MYVIMRC'))
+]]
 
 ------------------------- OPTIONS --------------------------
+-- Setting options
 --[[
-Setting options
+Managing vim options:
+https://github.com/nanotee/nvim-lua-guide#using-meta-accessors
 :help vim.o
+:h vim.opt
+
+:lua print(vim.o.number)
 ]]
+
+------------------------------
+-- Some options can be set using Lua tables:
+
+-- vim.cmd [[set wildignore=*.pyc,*.o]]
+--[[
+:lua vim.opt.wildignore = {'*.pyc', '*.o'}
+:lua print(vim.inspect(vim.opt.wildignore:get()))
+
+vim.opt.completeopt = {'menuone', 'noselect'}
+:lua print(vim.inspect(vim.opt.completeopt:get()))
+]]
+------------------------------
 
 vim.wo.relativenumber = true  -- mlabrkic
 vim.wo.cursorline = true  -- mlabrkic
@@ -212,6 +229,7 @@ vim.wo.signcolumn = 'yes'
 vim.o.termguicolors = true
 
 -- mlabrkic:
+-- pcall(vim.cmd, 'colorscheme gruvbox-material')
 vim.cmd [[
   " colorscheme onedark
   colorscheme gruvbox-material
@@ -229,21 +247,20 @@ vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true 
 NEW:
 https://github.com/nanotee/nvim-lua-guide#vimkeymap
 vim.keymap.set() - only available in Neovim 0.7.0+
+:help vim.keymap.set()
 ]]
 ------------------------------
+-- [[ Basic Keymaps ]]
+
+-- Set <space> as the leader key
 --[[
-Basic Keymaps
-Set <space> as the leader key
 :help mapleader
 NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 ]]
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
---[[
-Keymaps for better default experience
-:help vim.keymap.set()
---]]
+-- Keymaps for better default experience
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
@@ -251,9 +268,25 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 ------------------------------
--- mlabrkic:
+-- https://neovim.io/doc/user/vim_diff.html#nvim-defaults
+-- :h default-mappings
+--[[
+nnoremap Y y$
+nnoremap <C-L> <Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>
+inoremap <C-U> <C-G>u<C-U>
+inoremap <C-W> <C-G>u<C-W>
+--]]
 
+------------------------------
+-- mlabrkic:
+vim.keymap.set('n', '<F4>', '<cmd>set relativenumber!<cr>', { silent = true })
+vim.keymap.set('n', '<leader>w', '<cmd>update<cr>', { silent = true }) -- Saves the file if modified
+
+
+------------------------------
+-- mlabrkic
 -- clipboard:
+
 -- vim.cmd [[set clipboard+=unnamedplus]]  -- mlabrkic
 
 --[[
@@ -329,6 +362,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 --------------------- PLUGINS SETUP ------------------------
+
 
 ------------------------ Lualine ---------------------------
 --[[
@@ -499,9 +533,8 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 -------------------------- LSP -----------------------------
+-- LSP settings.
 --[[
-LSP settings.
-
 mlabrkic:
 https://github.com/neovim/nvim-lspconfig
 local servers = { 'pyright', 'vimls', 'sumneko_lua' }
@@ -510,7 +543,7 @@ Python:  npm i -g pyright
 vimls:   npm install -g vim-language-server
 Lua:     https://github.com/sumneko/lua-language-server
 Java:    https://github.com/mfussenegger/nvim-jdtls
---]]
+]]
 ------------------------------
 local navic = require("nvim-navic")  -- mlabrkic
 
@@ -651,11 +684,16 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    -- { name = 'luasnip', option = { keyword_length = 2, } },  -- mlabrkic
     { name = 'buffer' },  -- mlabrkic
-    { name = 'path' },  -- mlabrkic
+		-- { name = "buffer", option = { keyword_length = 3, keyword_pattern = [[\k\+]], }},  -- mlabrkic
+    -- { name = 'path' },  -- mlabrkic
+		-- { name = "nvim_lsp_signature_help" },
+		-- { name = "nvim_lua" },
   },
 }
 
+--[[
 -- mlabrkic:
 -- https://github.com/hrsh7th/nvim-cmp#recommended-configuration
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
@@ -675,7 +713,9 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
+]]
+
 
 -- The line beneath this is called `modeline`.
--- :help modeline
+-- help modeline
 -- vim: ts=2 sts=2 sw=2 et
