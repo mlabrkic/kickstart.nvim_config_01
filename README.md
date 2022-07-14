@@ -56,7 +56,7 @@ git clone https://github.com/mlabrkic/kickstart.nvim_config_01.git
 
 1. Backup your previous configuration
 
-2. Copy and paste files into         \
+2. Copy and paste files (ginit.vim and init.lua) into         \
 :echo stdpath("config")
 ```winCommandShell
 Windows Command Shell:
